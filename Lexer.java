@@ -267,7 +267,7 @@ public class Lexer {
 		/* 17 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
-"14:9,13:2,14:2,0,14:18,13,14:4,6,14:2,8,9,4,2,14,3,11,5,10:10,14,1,14:9,12," +
+"14:9,13:2,14:2,0,14:18,13,14:4,6,14:2,8,9,5,2,14,3,11,4,10:10,14,1,14:9,12," +
 "14:24,7,14:6,12,14:26,15:2")[0];
 
 	private int yy_rmap[] = unpackFromString(1,18,
@@ -330,15 +330,15 @@ public class Lexer {
 					case -3:
 						break;
 					case 3:
-						{ return new Token(Token.PLUS);   }
+						{ return new Token(Token.MINUS);   }
 					case -4:
 						break;
 					case 4:
-						{ return new Token(Token.MULT);   }
+						{ return new Token(Token.DIV);   }
 					case -5:
 						break;
 					case 5:
-						{ return new Token(Token.DIV);   }
+						{ return new Token(Token.MULT);   }
 					case -6:
 						break;
 					case 6:

@@ -85,20 +85,27 @@ import java.io.IOException;
 SEMI = ";" // Definan aqui sus Tokens/ER por ejemplo: "el token SEMI"
 WHITE = (" "|\t|\n)
 
-NUMERO = [0-9]([.]?[0-9]*)?([eE][+-]?[0-9]+)?
+NUMERO = ([0-9]([.]?[0-9]*)?([eE][+-]?[0-9]+)?)
+MAS = "+"
+MENOS = "-"
+DIVISION = "/"
+MODULO = "%"
+EXPONENCIAL = "^"
+LEFTPARETESIS = "("
+RIGHTPARENTESIS = ")"
+MUL = "*"
 
 %%
 
 <YYINITIAL>{SEMI}   { return new Token(Token.SEMI);   }
-<YYINITIAL>"+"   { return new Token(Token.PLUS);   }
-<YYINITIAL>"-"   { return new Token(Token.PLUS);   }
-<YYINITIAL>"*"   { return new Token(Token.MULT);   }
-<YYINITIAL>"/"   { return new Token(Token.DIV);   }
-<YYINITIAL>"%"   { return new Token(Token.MOD);   }
-<YYINITIAL>"^"   { return new Token(Token.EXP);   }
-
-<YYINITIAL>"("  { return new Token(Token.LPAREN); }
-<YYINITIAL>")"  { return new Token(Token.RPAREN); }
+<YYINITIAL>{MAS}   { return new Token(Token.PLUS);   }
+<YYINITIAL>{MENOS}   { return new Token(Token.MINUS);   }
+<YYINITIAL>{DIVISION}   { return new Token(Token.DIV);   }
+<YYINITIAL>{MUL}   { return new Token(Token.MULT);   }
+<YYINITIAL>{MODULO}   { return new Token(Token.MOD);   }
+<YYINITIAL>{EXPONENCIAL}   { return new Token(Token.EXP);   }
+<YYINITIAL>{LEFTPARETESIS}  { return new Token(Token.LPAREN); }
+<YYINITIAL>{RIGHTPARENTESIS}  { return new Token(Token.RPAREN); }
 <YYINITIAL>{NUMERO}  { 	return new Token(Token.NUMBER,yytext()); }
 
 <YYINITIAL>{WHITE}  { /* NO HACER NADA */             }
